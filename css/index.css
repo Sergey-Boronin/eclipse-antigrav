@@ -323,15 +323,17 @@ body {
   min-width: 284px;
   border: 1px solid #586074;
   border-collapse: collapse;
-  padding: 40px 32px 0;
-  height: 500px;
+  padding: 30px 29px 0;
+  height: 445px;
 }
 
 .catalog-slider__title {
   font-weight: 800;
-  font-size: 24px;
+  font-size: 22px;
   line-height: 120%;
   color: #fff;
+  margin-top: 0;
+
 }
 
 .catalog-slider__descr {
@@ -340,6 +342,7 @@ body {
   line-height: 120%;
   color: #fff;
   max-width: 220px;
+  height: 150px;
 }
 
 .catalog-slider-list {
@@ -599,6 +602,8 @@ body {
     justify-content: center;
     padding-bottom: 18px;
     padding: 0 0 18px 8px;
+    opacity: 1;
+    transition: opacity ease-in-out .6s;
 }
 
  /* .form__radio {
@@ -608,6 +613,11 @@ body {
   overflow: hidden; 
   clip: rect(0 0 0 0);
 }   */
+
+.form__label:hover {
+  cursor: pointer;
+  opacity: .3;
+}
 
 .form__label:last-of-type {
     padding-bottom: 0;
