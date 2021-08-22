@@ -64,7 +64,7 @@ body {
   content: "";
   position: absolute;
   left: -56px;
-  background: url('../../images/list-item-checked.svg') no-repeat;
+  background: url('../images/list-item-checked.svg') no-repeat;
   width: 32px;
   height: 32px;
   background-size: cover;
