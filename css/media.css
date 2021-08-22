@@ -144,10 +144,6 @@
       grid-row: 1/3;
     }
 
-    .portfolio {
-
-    }
-
     .portfolio__wrapper {
       flex-direction: column;
     }

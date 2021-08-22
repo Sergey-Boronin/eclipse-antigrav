@@ -89,6 +89,17 @@ radioButtons1.forEach(item => {
     const list = document.createElement('ul')
     list.classList.add('main-list_place_calc', 'main-list')
       const pack = e.target.id
+      console.log(pack)
+      const bgContainer = document.querySelector('#calc-form');
+      console.log(bgContainer.style.background)
+      console.log(bgContainer)
+      // bgContainer.style.backgroundImage = `url(../images/calculator-bg-${k1}.png)`
+      // $('#calc-form').removeClass('calc-pack');
+      $("form[class*='calc-pack']").removeClass (function (index, css) {
+        return (css.match (/(^|\s)calc-pack\S+/g) || []).join(' ');
+     });
+     bgContainer.classList.add(`calc-pack-${pack}`)
+
       packs[pack].forEach(item => {
         const initList = document.querySelector('.main-list_place_calc');
         initList.remove()
@@ -96,7 +107,10 @@ radioButtons1.forEach(item => {
         listItem.classList.add('main-list__item', 'main-list__item_place_calc');
         listItem.textContent = item;
         list.append(listItem);
-        document.querySelector('.form-wrapper').append(list)
+        document.querySelector('.form-wrapper').append(list);
+      
+        
+ 
       });
     });
   });
