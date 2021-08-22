@@ -121,7 +121,7 @@ const extrasContentContainer = document.querySelector('#extras-content');
 const extrasPriceContainer = document.querySelector('#extras-price');
 const extrasInput = document.querySelector('#extras-input');
 
-console.log(extrasContentContainer)
+
 
 extrasRadioButtons.forEach((button) => {
   button.addEventListener('change', (e) => {
@@ -130,7 +130,6 @@ extrasRadioButtons.forEach((button) => {
     const buttonId = e.target.id;
     extrasInput.value = e.target.id
     extrasContentContainer.textContent = extras[buttonId].content;
-    console.log(extrasInput.value)
   })
 })
 
@@ -201,15 +200,13 @@ stepPrevButtons.forEach( (button) => {
 
     const summaryInput = document.querySelector('#calc-summary-input');
     const priceInput = document.querySelector('#calc-price-input');
-
+    console.log(summary)
     priceInput.value = `${getPrice(summary)} руб`;
     const [pack, material, car] = summary;
-    console.log(summary)
     summaryInput.value = `Машина "${car}" комплект "${pack}" материал "${material}"`
   }
 
   const calcSubmitButton = document.querySelector('#calc-submit-button'); 
-  console.log(calcSubmitButton)
   const form = document.querySelector('#calc-form')
   form.addEventListener('submit', (e) => {
     e.preventDefault();
