@@ -118,6 +118,9 @@ body {
 .main-paragraph_place_extras {
   margin-bottom: 40px;
 }
+
+
+
 /*Переиспользуемое. Конец -------------------------------------- */
 
 .header {
@@ -294,12 +297,12 @@ body {
 
 .intro__text {
   max-width: 330px;
-  margin: 50px 50px 0 0;
+  margin: 50px 0 0 0;
 }
 
 .intro__compare {
-  max-width: 530px;
-  margin: 0 90px 0 0;
+  max-width: 630px;
+  margin: 0 26px 0 0;
 }
 
 .intro__list {
@@ -415,19 +418,20 @@ body {
 
 .portfolio-slider {
   display: flex;
-  height: 434px;
-  width: 1020px;
+  height: 430px;
+  width: 960px;
 
 }
 
 .portfolio-slider__item {
-  margin: 0;
+  margin: 0 10px 0 0;
+  width: 30%;
 }
 
 .portfolio-slider__photo {
   width: 100%;
-  height: 100%;
-  object-fit: contain;
+  height: 435px; 
+  object-fit: cover;
   filter: brightness(0.2);
   transition: filter ease-in-out .6s;
 }
@@ -435,6 +439,12 @@ body {
 .portfolio-insta__wrapper {
   display: flex;
   justify-content: center;
+  filter: brightness(1);
+  transition: filter .6s ease-in-out;
+}
+
+.portfolio-insta__wrapper:hover {
+  filter: brightness(.8);
 }
 
 .portfolio-insta__img {
@@ -558,12 +568,11 @@ body {
   padding: 60px 76px
 }
 
-
-
-
 .form-wrapper_place_extras {
     display: flex;
     justify-content: space-between;
+    background: #171C2C;  
+    padding: 60px 76px;
 }
 
 .form_place_extras {
@@ -588,7 +597,6 @@ body {
 
 .form-fieldset_place_calc {
     margin: 0 130px 60px 0;
-    /* justify-content: space-between; */
 }
 
 .form__label {
@@ -605,14 +613,6 @@ body {
     opacity: 1;
     transition: opacity ease-in-out .6s;
 }
-
- /* .form__radio {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  overflow: hidden; 
-  clip: rect(0 0 0 0);
-}   */
 
 .form__label:hover {
   cursor: pointer;
@@ -636,57 +636,6 @@ body {
 .extras .radio-wrapper {
   align-items: flex-start;
 }
-
-/* .form__radio:checked, 
-.form__radio:not(:checked) 
-{
-    position: absolute;
-    left: -9999px;
-}
-
-.form__radio:checked + .form__label, 
-.form__radio[type="radio"]:not(:checked) + .form__label {
-    position: relative;
-    padding-left: 28px;
-    line-height: 20px;
-    cursor: pointer;
-}
-
-.form__radio:checked + .form__label:before, 
-.form__radio:not(:checked) + .form__label:before {
-    content: "";
-    position: absolute;
-    left: 0px;
-    top: 0px;
-    width: 18px;
-    height: 18px;
-    background-color: #ffffff;
-}
-
-.form__radio:checked + .form__label:before, 
-.form__radio:not(:checked) + .form__label:before {
-    border-radius: 100%;
-
-}
-
-.form__radio:checked + .form__label:after, 
-.form__radio:not(:checked) + .form__label:after {
-    content: '123';
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 5px;
-    height: 5px;
-    background-size: contain; 
-}
-
-.form__radio:not(:checked) + .form__label:after {
-    opacity: 0;
-}
-
-.form__radio:checked + .form__label:after {
-    opacity: 1;
-} */
 
 .step-list__item {
   font-size: 14px;
@@ -715,6 +664,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  padding-bottom: 3px;
 }
 
 .extras__price-caption {
@@ -732,8 +682,8 @@ body {
 }
 
 .extras__img {
-  width: 100%;
-  height: 100%;
+  width: 400px;
+  height: 360px;
   object-fit: cover;
 }
 
@@ -870,7 +820,7 @@ position: relative;
   width: 550px;
   position: absolute;
   top: 136px;
-  left: 272px;
+  left: 190px;
 }
 
 .contacts__title {
@@ -900,6 +850,12 @@ position: relative;
 
 .contacts-socials__item {
   margin-right: 14px;
+  filter: brightness(1);
+  transition: filter .6s ease-in-out;
+}
+
+.contacts-socials__item:hover {
+  filter: brightness(.8);
 }
 
 .contacts-socials__item:last-of-type {
@@ -930,6 +886,7 @@ position: relative;
 .map-yandex {
   pointer-events: none;
   height: 100%;
+  filter: grayscale(1);
 }
 
 .map-yandex_active {
@@ -1041,7 +998,7 @@ position: relative;
 }
 
 .slick-current {
-  width: 100%;
+  width: 60%;
 }
 
 .slick-current .portfolio-slider__photo{
@@ -1096,24 +1053,11 @@ position: relative;
           transform: rotate(0deg);
   -webkit-transition: .2s ease all;
           transition: .2s ease all;
-  
-  /* 
-   * ENLARGED FOR PRESENTATION
-   * Keep these values at the same proportion 
-   * for it to look correct
-  */
   border-radius: 8px;
   height: 5px;
   width: 40px;
   margin-bottom: 10px;
-  
-  /*
-   * Practical values:
-   * border-radius: 2px;
-   * height: 2px;
-   * width: 25px;
-   * margin-bottom: 4px;
-  */
+
 }
 
 .burger-button .bar-bot {
@@ -1160,9 +1104,6 @@ position: relative;
 }
 
 .popup__container {
-  /* width: 425px; */
-  /* background-color: #fff;
-  border-radius: 10px; */
   position: relative;
   display: flex;
   justify-content: center;
@@ -1197,7 +1138,19 @@ position: relative;
 
 
 
+.no-decoration {
+  text-decoration: none;
+}
 
+.main-link {
+    color: #fff;
+    transition: color ease-in-out .6s;
+}
+
+.main-link:hover {
+  color: #FF6901;
+  cursor: pointer;
+}
 
 
 .block-hidden {

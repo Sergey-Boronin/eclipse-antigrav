@@ -22,11 +22,12 @@ $( document ).ready(
     $('.portfolio-slider').slick({
         // slidesToShow: 1,
         // mobileFirst:true,
+        // slidesToShow: 1,
         arrows: true,
         speed: 1200,
         prevArrow: '<button class="slick-prev_place_portfolio slick-arrow_place_portfolio" aria-label="Previous" type="button" style=""></button>',
         nextArrow: '<button class="slick-next_place_portfolio slick-arrow_place_portfolio" aria-label="Previous" type="button" style=""></button>',
-        centerMode: false,
+        centerMode: true,
         responsive: [
           {
             breakpoint: 426,
@@ -38,9 +39,6 @@ $( document ).ready(
           },
         ],
     });
-    // const portfolioCurrentSlide = document.querySelector('.portfolio-slider .slick-current');
-    // portfolioCurrentSlide.previousSibling.classList.add('portfolio-prev-slide');
-    // portfolioCurrentSlide.nextSibling.classList.add('portfolio-next-slide');
 })
 );
 
@@ -89,12 +87,7 @@ radioButtons1.forEach(item => {
     const list = document.createElement('ul')
     list.classList.add('main-list_place_calc', 'main-list')
       const pack = e.target.id
-      console.log(pack)
       const bgContainer = document.querySelector('#calc-form');
-      console.log(bgContainer.style.background)
-      console.log(bgContainer)
-      // bgContainer.style.backgroundImage = `url(../images/calculator-bg-${k1}.png)`
-      // $('#calc-form').removeClass('calc-pack');
       $("form[class*='calc-pack']").removeClass (function (index, css) {
         return (css.match (/(^|\s)calc-pack\S+/g) || []).join(' ');
      });
@@ -120,8 +113,7 @@ const extrasRadioButtons = document.querySelectorAll('.extras-radio');
 const extrasContentContainer = document.querySelector('#extras-content');
 const extrasPriceContainer = document.querySelector('#extras-price');
 const extrasInput = document.querySelector('#extras-input');
-
-
+const extrasImage = document.querySelector('.extras__img')
 
 extrasRadioButtons.forEach((button) => {
   button.addEventListener('change', (e) => {
@@ -130,10 +122,9 @@ extrasRadioButtons.forEach((button) => {
     const buttonId = e.target.id;
     extrasInput.value = e.target.id
     extrasContentContainer.textContent = extras[buttonId].content;
+    extrasImage.setAttribute('src', `./images/extras-img-${buttonId}.png`)
   })
 })
-
-
 
   stepNextButtons.forEach( (button) => {
     button.addEventListener('click', (e) => {
@@ -249,3 +240,57 @@ popupCloseButton.addEventListener('click', () =>  {
 
 
 
+ymaps.ready(function () {
+  var myMap = new ymaps.Map('map', {
+          center: [55.751574, 37.573856],
+          zoom: 9
+      }, {
+          searchControlProvider: 'yandex#search'
+      }),
+
+      // Создаём макет содержимого.
+      MyIconContentLayout = ymaps.templateLayoutFactory.createClass(
+          '<div style="color: #FFFFFF; font-weight: bold;">$[properties.iconContent]</div>'
+      ),
+
+      myPlacemark = new ymaps.Placemark(myMap.getCenter(), {
+          hintContent: 'Собственный значок метки',
+          balloonContent: 'Это красивая метка'
+      }, {
+          // Опции.
+          // Необходимо указать данный тип макета.
+          iconLayout: 'default#image',
+          // Своё изображение иконки метки.
+          iconImageHref: './images/ymap-marker.png',
+          // Размеры метки.
+          iconImageSize: [30, 42],
+          // Смещение левого верхнего угла иконки относительно
+          // её "ножки" (точки привязки).
+          iconImageOffset: [-5, -38]
+      }),
+
+      myPlacemarkWithContent = new ymaps.Placemark([55.661574, 37.573856], {
+          hintContent: 'Собственный значок метки с контентом',
+          balloonContent: 'А эта — новогодняя',
+          iconContent: '12'
+      }, {
+          // Опции.
+          // Необходимо указать данный тип макета.
+          iconLayout: 'default#imageWithContent',
+          // Своё изображение иконки метки.
+          iconImageHref: './images/ymap-marker.png',
+          // Размеры метки.
+          iconImageSize: [48, 48],
+          // Смещение левого верхнего угла иконки относительно
+          // её "ножки" (точки привязки).
+          iconImageOffset: [-24, -24],
+          // Смещение слоя с содержимым относительно слоя с картинкой.
+          iconContentOffset: [15, 15],
+          // Макет содержимого.
+          iconContentLayout: MyIconContentLayout
+      });
+
+  myMap.geoObjects
+      .add(myPlacemark)
+      .add(myPlacemarkWithContent);
+});
