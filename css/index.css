@@ -179,7 +179,7 @@ body {
   padding: 50px 0 150px;
   background: 
   url('../images/hero-shield.svg') no-repeat,
-  url('../../images/hero-bg-car.png') no-repeat 100% rgba(0, 0, 0, .1);
+  url('../images/hero-bg-car.png') no-repeat 100% rgba(0, 0, 0, .1);
   margin-bottom: 100px;
 }
 
