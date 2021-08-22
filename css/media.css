@@ -1,0 +1,255 @@
+@media screen and (max-width: 425px) {
+    .section {
+        max-width: 282px;
+      }
+
+    .main-heading {
+      font-size: 24px;
+      line-height: 29px;
+      margin-bottom: 40px;
+    }
+
+    .main-paragraph {
+      font-size: 14px;
+      line-height: 17px;
+    }
+
+    .main-list {
+      padding: 0 0 0 58px;
+    }
+
+    .main-list_place_calc {
+      padding: 0;
+      flex-wrap: nowrap;
+      width: fit-content;
+      max-height: unset;
+      padding: 0 0 0 26px;
+    }
+
+    .main-list__item {
+      margin: 0 0 26px;
+      font-size: 14px;
+      line-height: 17px;
+    }
+
+    .main-list__item_place_calc {
+      font-size: 14px;
+      line-height: 17px;
+      font-weight: normal;
+    }
+
+    .form-fieldset_place_calc {
+      margin: 0 0 42px;
+    }
+
+    nav {
+        display: none;
+    }  
+
+    .header {
+        padding: 18px 0 0;
+        align-items: center;
+        margin-bottom: 40px;
+    }
+    
+    .header__logo {
+        width: 60px;
+        height: 54px;
+    }
+
+    .header__phone {
+        font-size: 12px;
+        line-height: 15px;
+    }
+
+    .burger-button {
+        display: block;
+    }
+
+    .hero {
+      padding: 30px 0 0;
+      background: 
+      url('../../images/hero-shield.svg') no-repeat top left / 134px 148px,
+      url('../../images/hero-bg-car-mobile.png') -44px 75% no-repeat rgba(0, 0, 0, .1);
+      margin-bottom: 86px;
+    }  
+
+    .hero__heading {
+      font-size: 32px;
+      line-height: 41px;
+      padding-left: 9px;
+      margin-bottom: 14px;
+    }
+
+    .hero__subheading {
+      font-size: 22px;
+      line-height: 27px;
+      padding-left: 9px;
+    }
+
+    .hero__subheading:last-of-type {
+      margin-bottom: 272px;
+    }
+
+    .button {
+      width: 282px;
+    }
+    
+    .intro {
+      margin-bottom: 60px;
+    }
+
+    .intro__text {
+      margin: 0 0 20px;
+    }
+
+    .intro__compare {
+      max-width: 282px;
+      margin: 0 0 20px;
+    }
+
+    .intro__image {
+      width: 282px;
+    }
+
+    .intro__list {
+      margin: 0;
+    }
+
+    .catalog {
+      margin-bottom: 40px;
+    }
+
+    .catalog-slider {
+      width: 282px;
+    }
+
+    .catalog-slider__item {
+      min-width: 282px;
+}
+
+    .technology {
+      flex-direction: column;
+      margin-bottom: 40px;
+    } 
+
+    .technology-grid {
+      grid-template-columns: repeat(2, 130px);
+      gap: 8px;
+}
+
+    .technology-grid__video-container {
+      grid-column: 1/3;
+      grid-row: 1/3;
+    }
+
+    .portfolio {
+
+    }
+
+    .portfolio__wrapper {
+      flex-direction: column;
+    }
+
+    .portfolio-slider {
+      width: 282px;
+      height: 192px;
+    }
+
+    .portfolio .slick-current {
+      width: 282px !important;
+    }
+
+    .portfolio-prev-slide {
+      width: 282px !important;
+  } 
+
+  .portfolio-slider__item {
+    margin: 0;
+  }
+
+  .portfolio-slider__photo {
+    filter: unset;
+  }
+
+  .slick-arrow_place_portfolio {
+    position: absolute;
+    height: 36px;
+    width: 40px;
+    border-radius: 0;
+    border: 0;
+    background-color: #FF6901;
+    top: 40%;
+    cursor: pointer;
+    outline: none;
+  }
+  
+  .slick-prev_place_portfolio {
+    position: absolute;
+    left: 0;
+    z-index: 1;
+  }
+  
+  .slick-prev_place_portfolio::before {
+    position: absolute;
+    content: '\2190';
+    font-family: monospace;
+    color: #fff;
+    font-size: 40px;
+    line-height: 0;
+    right: 30%;
+    transition: color ease-in-out .9s;
+  }
+  
+  .slick-next_place_portfolio {
+    position: absolute;
+    right: 0;
+  }
+  
+  .slick-next_place_portfolio::before {
+    position: absolute;
+    content: '\2192';
+    font-family: monospace;
+    color: #fff;
+    font-size: 40px;
+    line-height: 0;
+    right: 30%;
+    transition: color ease-in-out .9s;
+  }
+
+  /* .calc {
+    flex-direction: column;
+  } */
+
+  .calc-form {
+    padding: 30px 30px 80px;
+  }
+
+  .form-title {
+    font-size: 20px;
+    line-height: 24px;
+    margin-bottom: 30px;
+  }
+
+  .form-wrapper_place_calc {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .form__label {
+    font-size: 12px;
+    line-height: 15px;
+  }
+
+  .step-container__buttons button {
+    margin: 0;
+  }
+
+  .step-caption {
+    font-size: 16px;
+    line-height: 20px;
+    bottom: -46px;
+    top: unset;
+  }
+
+}
