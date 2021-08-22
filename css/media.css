@@ -97,6 +97,7 @@
     
     .intro {
       margin-bottom: 60px;
+      flex-direction: column;
     }
 
     .intro__text {
