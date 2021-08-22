@@ -177,6 +177,7 @@ body {
   url('../images/hero-shield.svg') no-repeat,
   url('../images/hero-bg-car.png') no-repeat 100% rgba(0, 0, 0, .1);
   margin-bottom: 100px;
+  background-color: #090C1A;
 }
 
 .hero__heading {
@@ -323,7 +324,7 @@ body {
   border: 1px solid #586074;
   border-collapse: collapse;
   padding: 40px 32px 0;
-  height: 484px;
+  height: 500px;
 }
 
 .catalog-slider__title {
@@ -401,7 +402,7 @@ body {
 }
 
 .portfolio {
-  margin-bottom: 70px;
+  margin-bottom: 200px;
 }
 
 .portfolio__wrapper {
@@ -412,13 +413,12 @@ body {
 .portfolio-slider {
   display: flex;
   height: 434px;
-  width: 970px;
+  width: 1020px;
 
 }
 
 .portfolio-slider__item {
-  margin: 0 23px;
-
+  margin: 0;
 }
 
 .portfolio-slider__photo {
@@ -690,6 +690,10 @@ body {
 
 .step-list-container {
   display: flex;
+}
+
+#step4 {
+  padding: 44px;
 }
 
 .extras {
@@ -995,7 +999,7 @@ position: relative;
 
 .slick-prev_place_portfolio {
   position: absolute;
-  left: 105px;
+  left: 25px;
   z-index: 1;
 }
 
@@ -1012,7 +1016,7 @@ position: relative;
 
 .slick-next_place_portfolio {
   position: absolute;
-  right: 105px;
+  right: 25px;
 }
 
 .slick-next_place_portfolio::before {
@@ -1026,13 +1030,17 @@ position: relative;
   transition: color ease-in-out .9s;
 }
 
+.slick-current {
+  width: 100%;
+}
+
 .slick-current .portfolio-slider__photo{
   filter: brightness(1);
 }
 
-.portfolio-prev-slide {
+/* .portfolio-prev-slide {
   width: 900px !important;
-}
+} */
 
 
 /* --------------шаги для калькулятора------------------- */

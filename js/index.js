@@ -26,7 +26,7 @@ $( document ).ready(
         speed: 1200,
         prevArrow: '<button class="slick-prev_place_portfolio slick-arrow_place_portfolio" aria-label="Previous" type="button" style=""></button>',
         nextArrow: '<button class="slick-next_place_portfolio slick-arrow_place_portfolio" aria-label="Previous" type="button" style=""></button>',
-        centerMode: true,
+        centerMode: false,
         responsive: [
           {
             breakpoint: 426,
@@ -38,9 +38,9 @@ $( document ).ready(
           },
         ],
     });
-    const portfolioCurrentSlide = document.querySelector('.portfolio-slider .slick-current');
-    portfolioCurrentSlide.previousSibling.classList.add('portfolio-prev-slide');
-    portfolioCurrentSlide.nextSibling.classList.add('portfolio-next-slide');
+    // const portfolioCurrentSlide = document.querySelector('.portfolio-slider .slick-current');
+    // portfolioCurrentSlide.previousSibling.classList.add('portfolio-prev-slide');
+    // portfolioCurrentSlide.nextSibling.classList.add('portfolio-next-slide');
 })
 );
 
