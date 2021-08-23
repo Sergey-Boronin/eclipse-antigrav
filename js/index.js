@@ -47,14 +47,12 @@ $(function(){
   $(".intro__compare").twentytwenty();
 });
 
-
 //включить стандартное поведение карты по клику на обертку
 const map = document.querySelector('.map');
 const yMap = document.querySelector('.map-yandex');
 map.addEventListener('click', () => {
   yMap.classList.add('map-yandex_active');
 });
-
 
 //включить плавную прокрутку из меню
 const anchors = document.querySelectorAll('.navbar__link');
@@ -77,14 +75,12 @@ anchors.forEach(anchor => {
 const radioSummary = [document.querySelector('#step1').querySelector('input[type="radio"]:checked').id]; 
 
 
-
 const stepNextButtons = document.querySelectorAll('.button_place_calc-next');
 const stepPrevButtons = document.querySelectorAll('.button_place_calc-prev');
 
 const radioButtons1 = document.querySelectorAll('.step1-radio');
 const radioButtons2 = document.querySelectorAll('.step2-radio');
 const radioButtons3 = document.querySelectorAll('.step3-radio');
-
 
 //смена контента в калькуляторе
 radioButtons1.forEach(item => {
@@ -114,28 +110,29 @@ radioButtons1.forEach(item => {
   });
 
 //смена контента в доп. услугах
-const extrasRadioButtons = document.querySelectorAll('.extras-radio');
-const extrasContentContainer = document.querySelector('#extras-content');
-const extrasPriceContainer = document.querySelector('#extras-price');
-const extrasInput = document.querySelector('#extras-input');
-const extrasImage = document.querySelector('.extras__img')
+// const extrasRadioButtons = document.querySelectorAll('.extras-radio');
+// const extrasContentContainer = document.querySelector('#extras-content');
+// const extrasPriceContainer = document.querySelector('#extras-price');
+// const extrasInput = document.querySelector('#extras-input');
+// const extrasImage = document.querySelector('.extras__img')
 
-extrasRadioButtons.forEach((button) => {
-  button.addEventListener('change', (e) => {
-    extrasInput.value = ''
-    extrasContentContainer.textContent="";
-    const buttonId = e.target.id;
-    extrasInput.value = e.target.id
-    extrasContentContainer.textContent = extras[buttonId].content;
-    extrasImage.setAttribute('src', `./images/extras-img-${buttonId}.png`)
-  })
-})
+// extrasRadioButtons.forEach((button) => {
+//   button.addEventListener('change', (e) => {
+//     extrasInput.value = ''
+//     extrasContentContainer.textContent="";
+//     const buttonId = e.target.id;
+//     extrasInput.value = e.target.id
+//     extrasContentContainer.textContent = extras[buttonId].content;
+//     extrasImage.setAttribute('src', `./images/extras-img-${buttonId}.png`)
+//   })
+// })
 
   stepNextButtons.forEach( (button) => {
     button.addEventListener('click', (e) => {
+      // console.log(e.target)
     const stepNumber = parseInt(e.target.id.slice(-1));
-    const currentStep = document.querySelector(`#step${stepNumber}`)  
-    const nextStep = document.querySelector(`#step${parseInt(stepNumber)+1}`)  
+    const currentStep = document.querySelector(`#step${stepNumber}`) 
+    const nextStep = document.querySelector(`#step${parseInt(stepNumber)+1}`);  
     currentStep.classList.add('block-hidden');
     nextStep.classList.remove('block-hidden');
     if(parseInt(nextStep.id.slice(-1)) <= stepNextButtons.length ){
@@ -149,12 +146,13 @@ extrasRadioButtons.forEach((button) => {
 
 stepPrevButtons.forEach( (button) => {
   button.addEventListener('click', (e) => {
-  const stepNumber = parseInt(e.target.id.slice(-1));
-  const currentStep = document.querySelector(`#step${stepNumber}`)  
-  const prevStep = document.querySelector(`#step${parseInt(stepNumber)-1}`)  
-  currentStep.classList.add('block-hidden');
-  prevStep.classList.remove('block-hidden');
-  radioSummary.splice(stepNumber-2, 1);
+    // console.log(e.target)
+  const stepNumber = parseInt(e.target.id.slice(-1)); //
+  const currentStep = document.querySelector(`#step${stepNumber}`) // 
+  const prevStep = document.querySelector(`#step${parseInt(stepNumber)-1}`) // 
+  currentStep.classList.add('block-hidden'); //
+  prevStep.classList.remove('block-hidden'); //
+  radioSummary.splice(stepNumber-1, 1);
   })
 })
 
@@ -185,7 +183,7 @@ stepPrevButtons.forEach( (button) => {
 
   function getPrice(summary) {
     const [pack, material, car] = summary;
-    return price[car][pack][material]
+    return price[car][pack][material];
   }
 
   function setPrise(summary){
@@ -196,7 +194,7 @@ stepPrevButtons.forEach( (button) => {
 
     const summaryInput = document.querySelector('#calc-summary-input');
     const priceInput = document.querySelector('#calc-price-input');
-    console.log(summary)
+    // console.log(summary)
     priceInput.value = `${getPrice(summary)} руб`;
     const [pack, material, car] = summary;
     summaryInput.value = `Машина "${car}" комплект "${pack}" материал "${material}"`
@@ -210,30 +208,28 @@ stepPrevButtons.forEach( (button) => {
   const form = document.querySelector('#calc-form')
   form.addEventListener('submit', (e) => {
     e.preventDefault();
-    // const summaryInput = document.querySelector('#calc-summary-input');
-    // const priceInput = document.querySelector('#calc-price-input');
-    // const nameInput = document.querySelector('#calc-name-input');
-    // const phoneInput = document.querySelector('#calc-phone-input');
-    // console.log(summaryInput.value, priceInput.value, nameInput.value, phoneInput.value)
+    const summaryInput = document.querySelector('#calc-summary-input');
+    const priceInput = document.querySelector('#calc-price-input');
+    const nameInput = document.querySelector('#calc-name-input');
+    const phoneInput = document.querySelector('#calc-phone-input');
+    console.log(summaryInput.value, priceInput.value, nameInput.value, phoneInput.value)
     console.log(popupInfo)
     popupInfo.classList.add('popup_opened')
   })
 
- 
   const callbackForm = document.querySelector('#callback-form')
   callbackForm.addEventListener('submit', (e) => {
     e.preventDefault();
-    // const summaryInput = document.querySelector('#calc-summary-input');
-    // const priceInput = document.querySelector('#calc-price-input');
-    // const nameInput = document.querySelector('#calc-name-input');
-    // const phoneInput = document.querySelector('#calc-phone-input');
-    // console.log(summaryInput.value, priceInput.value, nameInput.value, phoneInput.value)
-    console.log(popupInfo)
-    popupInfo.classList.add('popup_opened')
-    popup.classList.remove('popup_opened')
+    const summaryInput = document.querySelector('#calc-summary-input');
+    const priceInput = document.querySelector('#calc-price-input');
+    const nameInput = document.querySelector('#calc-name-input');
+    const phoneInput = document.querySelector('#calc-phone-input');
+    console.log(summaryInput.value, priceInput.value, nameInput.value, phoneInput.value)
+    // console.log(popupInfo)
+    // popupInfo.classList.add('popup_opened')
+    // popup.classList.remove('popup_opened')
   })
   
-
 
 
   // Анимация бургера
@@ -299,3 +295,5 @@ function headerScroll() {
 // window.onscroll = function() {
 //   headerScroll()
 // };
+
+

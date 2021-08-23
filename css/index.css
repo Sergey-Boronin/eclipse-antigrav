@@ -728,7 +728,7 @@ body {
 }
 
 .calc-pack-k4 {
-  background: #171C2C url('../images/calculator-bg-k4.png') no-repeat 90% 88%;
+  background: #171C2C url('../images/calculator-bg-k4.png') no-repeat 111% 88%;
   padding: 60px 76px
 }
 
@@ -1029,7 +1029,7 @@ position: relative;
 
 .personal-data_place_step {
   width: 330px;
-  margin-right: 28px;
+  margin-right: 58px;
   padding-left: 2px;
 }
 
@@ -1121,7 +1121,7 @@ position: relative;
 
 /* для слйадера */
 .slick-arrow_place_catalog {
-  width: 50px;
+  width: 60px;
   height: 100%;
   background-color: #1C2130;
   border: 1px #1C2130 solid;
@@ -1143,11 +1143,11 @@ position: relative;
 }
 
 .slick-prev_place_catalog {
-  left: -60px;
+  left: -70px;
 }
 
 .slick-next_place_catalog {
-  right: -60px;
+  right: -70px;
 }
 
 .slick-next_place_catalog::before {
@@ -1401,12 +1401,6 @@ position: relative;
 .popup__container input:last-of-type {
   margin-right: 0;
 }
-
-/* .popup-info {
-  display: flex;
-  opacity: 1;
-  visibility: visible;
-} */
 
 .popup-info__container {
   width: 850px;
