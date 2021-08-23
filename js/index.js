@@ -110,22 +110,22 @@ radioButtons1.forEach(item => {
   });
 
 //смена контента в доп. услугах
-// const extrasRadioButtons = document.querySelectorAll('.extras-radio');
-// const extrasContentContainer = document.querySelector('#extras-content');
-// const extrasPriceContainer = document.querySelector('#extras-price');
-// const extrasInput = document.querySelector('#extras-input');
-// const extrasImage = document.querySelector('.extras__img')
+const extrasRadioButtons = document.querySelectorAll('.extras-radio');
+const extrasContentContainer = document.querySelector('#extras-content');
+const extrasPriceContainer = document.querySelector('#extras-price');
+const extrasInput = document.querySelector('#extras-input');
+const extrasImage = document.querySelector('.extras__img')
 
-// extrasRadioButtons.forEach((button) => {
-//   button.addEventListener('change', (e) => {
-//     extrasInput.value = ''
-//     extrasContentContainer.textContent="";
-//     const buttonId = e.target.id;
-//     extrasInput.value = e.target.id
-//     extrasContentContainer.textContent = extras[buttonId].content;
-//     extrasImage.setAttribute('src', `./images/extras-img-${buttonId}.png`)
-//   })
-// })
+extrasRadioButtons.forEach((button) => {
+  button.addEventListener('change', (e) => {
+    extrasInput.value = ''
+    extrasContentContainer.textContent="";
+    const buttonId = e.target.id;
+    extrasInput.value = e.target.id
+    extrasContentContainer.textContent = extras[buttonId].content;
+    extrasImage.setAttribute('src', `./images/extras-img-${buttonId}.png`)
+  })
+})
 
   stepNextButtons.forEach( (button) => {
     button.addEventListener('click', (e) => {
