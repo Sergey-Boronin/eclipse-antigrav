@@ -5,7 +5,7 @@
 * Browsers: last 4 version
 */
 
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 480px) {
   .section {
       max-width: 282px;
     }
@@ -53,9 +53,11 @@
     margin: 0 0 42px;
   }
 
-  nav {
+  /* .header__nav {
       display: none;
-  }  
+  }   */
+
+
 
   .header {
       padding: 18px 0 0;
@@ -73,6 +75,10 @@
   .header__phone {
       font-size: 12px;
       line-height: 15px;
+  }
+
+  .header__nav_type_desktop {
+    display: none;
   }
 
   .burger-button {

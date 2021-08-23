@@ -8,7 +8,7 @@ $( document ).ready(
         speed: 1200,
         responsive: [
           {
-            breakpoint: 426,
+            breakpoint: 481,
             settings: {
               slidesToShow: 1,
               slidesToScroll: 1
@@ -30,7 +30,7 @@ $( document ).ready(
         centerMode: true,
         responsive: [
           {
-            breakpoint: 426,
+            breakpoint: 481,
             settings: {
               slidesToShow: 1,
               slidesToScroll: 1,
@@ -202,16 +202,39 @@ stepPrevButtons.forEach( (button) => {
     summaryInput.value = `Машина "${car}" комплект "${pack}" материал "${material}"`
   }
 
+  const popupInfo = document.querySelector('.popup-info');
+
+  const popupInfoCloseButton = document.querySelector('.popup__info-close');
+
   const calcSubmitButton = document.querySelector('#calc-submit-button'); 
   const form = document.querySelector('#calc-form')
   form.addEventListener('submit', (e) => {
     e.preventDefault();
-    const summaryInput = document.querySelector('#calc-summary-input');
-    const priceInput = document.querySelector('#calc-price-input');
-    const nameInput = document.querySelector('#calc-name-input');
-    const phoneInput = document.querySelector('#calc-phone-input');
-    console.log(summaryInput.value, priceInput.value, nameInput.value, phoneInput.value)
+    // const summaryInput = document.querySelector('#calc-summary-input');
+    // const priceInput = document.querySelector('#calc-price-input');
+    // const nameInput = document.querySelector('#calc-name-input');
+    // const phoneInput = document.querySelector('#calc-phone-input');
+    // console.log(summaryInput.value, priceInput.value, nameInput.value, phoneInput.value)
+    console.log(popupInfo)
+    popupInfo.classList.add('popup_opened')
   })
+
+ 
+  const callbackForm = document.querySelector('#callback-form')
+  callbackForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    // const summaryInput = document.querySelector('#calc-summary-input');
+    // const priceInput = document.querySelector('#calc-price-input');
+    // const nameInput = document.querySelector('#calc-name-input');
+    // const phoneInput = document.querySelector('#calc-phone-input');
+    // console.log(summaryInput.value, priceInput.value, nameInput.value, phoneInput.value)
+    console.log(popupInfo)
+    popupInfo.classList.add('popup_opened')
+    popup.classList.remove('popup_opened')
+  })
+  
+
+
 
   // Анимация бургера
   function burgerRotate() {
@@ -227,6 +250,7 @@ stepPrevButtons.forEach( (button) => {
   // popup
 
 const popup = document.querySelector('.popup');
+
 const popupCloseButton = document.querySelector('.popup__close');
 
 const buttonAction = document.querySelectorAll('.button-action');
@@ -242,3 +266,36 @@ popupCloseButton.addEventListener('click', () =>  {
   popup.classList.remove('popup_opened');
 })
 
+popupInfoCloseButton.addEventListener('click', () =>  {
+  popupInfo.classList.remove('popup_opened');
+})
+
+const burgerButton = document.querySelector('.burger-button');
+const mobileMenu = document.querySelector('.mobile-menu');
+burgerButton.addEventListener('click', () => {
+  
+  mobileMenu.classList.toggle('block-hidden');
+})
+
+const navLinks = document.querySelectorAll('.navbar__item_place_mobile');
+navLinks.forEach(link => {
+  link.addEventListener('click', () => {
+    mobileMenu.classList.add('block-hidden');
+    burgerButton.classList.remove('opened')
+  })
+})
+const header = document.querySelector('.header')
+
+function headerScroll() {
+ 
+// const sticky = header.offsetTop;
+  if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+    header.classList.add("sticky");
+  } else {
+    header.classList.remove("sticky");
+  }
+}
+
+// window.onscroll = function() {
+//   headerScroll()
+// };

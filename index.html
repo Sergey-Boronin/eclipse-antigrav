@@ -17,7 +17,7 @@
   <div class="page">
     <header class="header section">
       <img src="./images/logo.png" alt="#" class="header__logo">
-      <nav class="header__nav">
+      <nav class="header__nav_type_desktop">
         <ul class="navbar">
           <li class="navbar__item">
             <a href="#intro" class="navbar__link">Наши преимущества</a>
@@ -39,6 +39,25 @@
         <span class="bar-mid"></span>
         <span class="bar-bot"></span>
       </button>
+      <div class="mobile-menu block-hidden">
+        <nav class="header__nav header__nav_place_mobile">
+          <ul class="navbar navbar_place_mobile">
+            <li class="navbar__item navbar__item_place_mobile">
+              <a href="#intro" class="navbar__link navbar__link_place_mobile">Наши преимущества</a>
+            </li>
+            <li class="navbar__item navbar__item_place_mobile">
+              <a href="#calc" class="navbar__link navbar__link_place_mobile">Стоимость </a>
+            </li>
+            <li class="navbar__item navbar__item_place_mobile">
+              <a href="#portfolio" class="navbar__link navbar__link_place_mobile">Наши работы</a>
+            </li>
+            <li class="navbar__item navbar__item_place_mobile">
+              <a href="#footer" class="navbar__link navbar__link_place_mobile">Контакты</a>
+            </li>
+          </ul>
+        </nav>
+        <button class="button button-action button-action_type_mobile">Заказать звонок</button>
+      </div>
     </header>
     <main class="main">
       <section class="hero section">
@@ -611,11 +630,21 @@
             </div>
           </div>
         </div>
-      
+    </section>
+    <section class="popup popup-info">
+      <div class="popup-info__container">
+        <div class="popup-info__content">
+          <p class="popup-info__heading">
+            Спасибо за заявку
+          </p>
+          <p class="popup-info__subheading">
+            В ближайшее время мы с вами свяжемся!
+          </p>
+        </div>
+        <button type="button" class="popup__close page-button popup__info-close"><img src="./images/button-close.svg" alt="Закрыть форму." /></button>
+      </div>
     </section>
   </div>
-  <!-- <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;apikey=<ваш API-ключ>" type="text/javascript"></script>
-  <script src="icon_customImage.js" type="text/javascript"></script> -->
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
   <script src="js/jquery.event.move.js" type="text/javascript"></script>
   <script src="js/jquery.twentytwenty.js" type="text/javascript"></script>
