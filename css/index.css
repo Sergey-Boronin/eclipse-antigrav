@@ -1377,6 +1377,13 @@ position: relative;
   position: absolute;
   top: -56px;
   right: 0;
+  opacity: 1;
+  transition: opacity .6s ease-in-out;
+}
+
+.popup__close:hover {
+  opacity: .3;
+  cursor: pointer;
 }
 
 .popup__container .form-wrapper {
