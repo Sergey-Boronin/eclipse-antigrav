@@ -301,13 +301,18 @@ body {
 }
 
 .intro__compare {
-  max-width: 630px;
+  width: 530px;
+  /* height: 500px !important; */
   margin: 0 26px 0 0;
 }
 
 .intro__list {
   margin-top: 52px;
   /* max-width: 272px; */
+}
+
+.intro__image {
+  min-width: 100%;
 }
 
 .catalog {
@@ -1135,7 +1140,25 @@ position: relative;
 
 /* -------------------Popup-with-form------------------------------ */
 
+.twentytwenty-overlay {
+  display: none;
+}
 
+.twentytwenty-handle {
+  background-color: #000;
+  width: 38px;
+  height: 38px;
+  background: #000000;
+ /* border: #FF6901 2px solid; */
+} 
+
+/* .twentytwenty-horizontal .twentytwenty-handle::before {
+  background-color: #FF6901;
+}
+
+.twentytwenty-horizontal .twentytwenty-handle::after {
+  background-color: #FF6901;
+} */
 
 
 .no-decoration {
