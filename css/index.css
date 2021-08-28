@@ -251,10 +251,6 @@ body {
   border: 0;
 }
 
-.button-action_type_mobile {
-  /* flex-shrink: 1; */
-}
-
 
 /* -------------mobile--menu--end------------ */
 
@@ -729,6 +725,12 @@ body {
   padding: 60px 76px
 }
 
+.calc-pack-null {
+  background: none;
+  padding: 60px 76px
+}
+
+
 .form-wrapper_place_extras {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -768,7 +770,7 @@ body {
 }
 
 .form-fieldset_place_calc {
-    margin: 0 130px 60px 0;
+    margin: 0 100px 60px 0;
 }
 
 .form__label {
@@ -783,27 +785,40 @@ body {
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    padding-bottom: 18px;
-    padding: 0 0 18px 8px;
-    opacity: 1;
-    -webkit-transition: opacity ease-in-out .6s;
-    -o-transition: opacity ease-in-out .6s;
-    transition: opacity ease-in-out .6s;
+    padding-left: 30px;
+    
+    opacity: .8;
+    transition: 
+    /* opacity ease-in-out .3s,  */
+    color ease-in-out .5s
+    ;
+}
+
+.form__label:checked {
+  color: #FF6901;
+}
+
+.form__radio {
+  margin-right: 8px;
+  border: 0;
+}
+
+.form__radio:hover {
+  cursor: pointer;
 }
 
 .form__label:hover {
   cursor: pointer;
-  opacity: .3;
+  /* opacity: .2; */
+  color: #FF6901;
 }
 
-.form__label:last-of-type {
+/* .form__label:last-of-type {
     padding-bottom: 0;
-}
+} */
 
 .radio-wrapper {
+  position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -839,8 +854,16 @@ body {
   display: flex;
 }
 
-#step4 {
+#step6 {
   padding: 44px;
+}
+
+#step3 .radio-wrapper {
+  margin-right: 30px;
+}
+
+#step3 .radio-wrapper:last-of-type {
+  margin-right: 0;
 }
 
 .extras {
@@ -989,7 +1012,7 @@ body {
 
 .callback-form__label-tel {
   margin-left: 26px;
-position: relative;
+  position: relative;
 }
 
 .callback-form__label-tel::before {
@@ -1485,6 +1508,56 @@ position: relative;
   cursor: pointer;
 }
 
+.form__label {
+  color: #fff;
+  transition: color ease-in-out .6s;
+}
+
+.form__label_active {
+  color: #FF6901;
+}
+
+
+.form__radio {
+  position: absolute;
+  width: 1px; /* если у элемента не будет размеров, некоторые браузеры посчитают, что его вообще нет */
+  height: 1px;
+  overflow: hidden; /* без этого свойства тоже сработает, но так наверняка. Мы его ещё изучим, оно скрывает элементы, выходящие за границы родителя */
+  clip: rect(0 0 0 0);
+} 
+
+.form__radio + .visible-checkbox {
+  width: 16px;
+  height: 16px;
+  background: #fff;
+  border-radius: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.form__radio:checked + .visible-checkbox {
+  background-color: #FF6901;
+  transition: background-color .6s ease-in-out;
+}
+
+.form__radio:disabled + .visible-checkbox {
+  background-color: #000;
+}
+
+.form__radio:checked + .visible-checkbox::before {
+  position: absolute;
+  content: '';
+  background-color: #000;
+  width: 6px;
+  height: 6px;
+  z-index: 1;
+  border-radius: 100%;
+}
 
 .block-hidden {
   display: none;

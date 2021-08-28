@@ -77,37 +77,132 @@ const radioSummary = [document.querySelector('#step1').querySelector('input[type
 
 const stepNextButtons = document.querySelectorAll('.button_place_calc-next');
 const stepPrevButtons = document.querySelectorAll('.button_place_calc-prev');
+const bgContainer = document.querySelector('#calc-form');
+const finalStep = document.querySelector('#step-next-5');
+const stepCaption = document.querySelector('.step-caption');
+
 
 const radioButtons1 = document.querySelectorAll('.step1-radio');
-const radioButtons2 = document.querySelectorAll('.step2-radio');
-const radioButtons3 = document.querySelectorAll('.step3-radio');
+// const radioButtons2 = document.querySelectorAll('.step2-radio');
+// const radioButtons3 = document.querySelectorAll('.step3-radio');
+const allLabels = document.querySelectorAll('.form__label');
+const allRadios = document.querySelectorAll('.form__radio')
+
+function delayedAlert() {
+  timeoutID = window.setTimeout(slowAlert, 1000);
+}
+
+function toggleLabelColor () {
+
+  allRadios.forEach(radio  => {
+
+    radio.addEventListener('change', (e) => {
+      allLabels.forEach(label => {
+        if(label.classList.contains('form__label_active')) {
+          label.classList.remove('form__label_active')
+        }
+      })
+      e.target.parentNode.classList.add('form__label_active')
+      
+    })
+  })
+}
+
+toggleLabelColor()
 
 //смена контента в калькуляторе
-radioButtons1.forEach(item => {
-  item.addEventListener('change', (e) => {
-    const list = document.createElement('ul')
-    list.classList.add('main-list_place_calc', 'main-list')
-      const pack = e.target.id
-      const bgContainer = document.querySelector('#calc-form');
-      $("form[class*='calc-pack']").removeClass (function (index, css) {
-        return (css.match (/(^|\s)calc-pack\S+/g) || []).join(' ');
-     });
-     bgContainer.classList.add(`calc-pack-${pack}`)
 
-      packs[pack].forEach(item => {
-        const initList = document.querySelector('.main-list_place_calc');
-        initList.remove()
-        const listItem = document.createElement('li');
-        listItem.classList.add('main-list__item', 'main-list__item_place_calc');
-        listItem.textContent = item;
-        list.append(listItem);
-        document.querySelector('.form-wrapper').append(list);
-      
-        
- 
+function delay () {
+  console.log('delay')
+}
+
+radioButtons1.forEach(item => {
+
+  const listContainer = document.querySelector('#step-list1');
+  item.addEventListener('change', (e) => {
+    listContainer.innerHTML = '';
+    const pack = e.target.id;
+    packs[pack].forEach(item => {
+    listContainer.append(generatLeistItem(item));
+  })
+         $("form[class*='calc-pack']").removeClass (function (index, css) {
+          return (css.match (/(^|\s)calc-pack\S+/g) || []).join(' ');
       });
-    });
-  });
+      bgContainer.classList.add(`calc-pack-${pack}`)
+})
+})
+
+function generatLeistItem (item) {
+  const listItem = document.createElement('li');
+  listItem.classList.add('main-list__item', 'main-list__item_place_calc');
+  listItem.textContent = item;
+  return listItem;
+}
+
+
+
+
+function adsList () {
+
+}
+  // item.addEventListener('change', (e) => {
+  //   // changeListStep1(e)
+  //   // setTimeout (() => {
+          
+  //   // }, 1000)
+  //   const list = document.createElement('ul')
+  //   list.classList.add('main-list_place_calc', 'main-list')
+  //     const pack = e.target.id
+  //     packs[pack].forEach(item => {
+
+  //       const initList = document.querySelector('.main-list_place_calc');
+  //       initList.remove()
+  //       const listItem = document.createElement('li');
+  //       listItem.classList.add('main-list__item', 'main-list__item_place_calc');
+  //       listItem.textContent = item;
+
+  //       list.append(listItem);
+  //       document.querySelector('.form-wrapper').append(list);
+
+  //       $("form[class*='calc-pack']").removeClass (function (index, css) {
+  //         return (css.match (/(^|\s)calc-pack\S+/g) || []).join(' ');
+  //     });
+  //     bgContainer.classList.add(`calc-pack-${pack}`)
+  //     });
+  //   });
+  // });
+// конец смена контента в калькуляторе
+  function generateList (e) {
+
+  }
+
+  // function changeListStep1 (e) {
+  //   const list = document.createElement('ul')
+  //   list.classList.add('main-list_place_calc', 'main-list')
+  //     const pack = e.target.id
+      
+
+
+  //     packs[pack].forEach(item => {
+  //       const initList = document.querySelector('.main-list_place_calc');
+  //       initList.remove()
+  //       const listItem = document.createElement('li');
+  //       listItem.classList.add('main-list__item', 'main-list__item_place_calc');
+  //       listItem.textContent = item;
+  //       list.append(listItem);
+  //       document.querySelector('.form-wrapper').append(list);
+  //     });
+
+  //     $("form[class*='calc-pack']").removeClass (function (index, css) {
+  //       return (css.match (/(^|\s)calc-pack\S+/g) || []).join(' ');
+  //   });
+  //   bgContainer.classList.add(`calc-pack-${pack}`);
+  // }
+
+
+  finalStep.addEventListener('click', () => {
+    bgContainer.classList.add('calc-pack-null')
+  })
 
 //смена контента в доп. услугах
 const extrasRadioButtons = document.querySelectorAll('.extras-radio');
@@ -129,24 +224,22 @@ extrasRadioButtons.forEach((button) => {
 
   stepNextButtons.forEach( (button) => {
     button.addEventListener('click', (e) => {
-      // console.log(e.target)
     const stepNumber = parseInt(e.target.id.slice(-1));
     const currentStep = document.querySelector(`#step${stepNumber}`) 
     const nextStep = document.querySelector(`#step${parseInt(stepNumber)+1}`);  
     currentStep.classList.add('block-hidden');
     nextStep.classList.remove('block-hidden');
-    if(parseInt(nextStep.id.slice(-1)) <= stepNextButtons.length ){
-      radioSummary.push(nextStep.querySelector('input[type="radio"]:checked').id);
-    };
-    if(parseInt(nextStep.id.slice(-1)) == 3 ){
-      setPrise(radioSummary)
-    };
+    // if(parseInt(nextStep.id.slice(-1)) <= stepNextButtons.length ){
+    //   radioSummary.push(nextStep.querySelector('input[type="radio"]:checked').id);
+    // };
+    // if(parseInt(nextStep.id.slice(-1)) == 3 ){
+    //   setPrise(radioSummary)
+    // };
     });
   });
 
 stepPrevButtons.forEach( (button) => {
   button.addEventListener('click', (e) => {
-    // console.log(e.target)
   const stepNumber = parseInt(e.target.id.slice(-1)); //
   const currentStep = document.querySelector(`#step${stepNumber}`) // 
   const prevStep = document.querySelector(`#step${parseInt(stepNumber)-1}`) // 
@@ -158,47 +251,43 @@ stepPrevButtons.forEach( (button) => {
 
 //переключение контента в шаге №1 калькулятора
 
-  radioButtons1.forEach(item => {
-    item.addEventListener('change', (e) => {
-      radioSummary.pop()
-      radioSummary.push(e.target.id)
-    })
-  })
+  // radioButtons1.forEach(item => {
+  //   item.addEventListener('change', (e) => {
+  //     radioSummary.pop()
+  //     radioSummary.push(e.target.id)
+  //   })
+  // })
 
-  radioButtons2.forEach(item => {
-    item.addEventListener('change', (e) => {
-      radioSummary.pop()
-      radioSummary.push(e.target.id)
-    })
-  })
+  // radioButtons2.forEach(item => {
+  //   item.addEventListener('change', (e) => {
+  //     radioSummary.pop()
+  //     radioSummary.push(e.target.id)
+  //   })
+  // })
 
-  radioButtons3.forEach(item => {
-    item.addEventListener('change', (e) => {
+  // radioButtons3.forEach(item => {
+  //   item.addEventListener('change', (e) => {
+  //     radioSummary.pop()
+  //     radioSummary.push(e.target.id)
+  //     setPrise(radioSummary);
+  //   })
+  // })
 
-      radioSummary.pop()
-      radioSummary.push(e.target.id)
-      setPrise(radioSummary);
-    })
-  })
+  // function getPrice(summary) {
+  //   const [pack, material, car] = summary;
+  //   return price[car][pack][material];
+  // }
 
-  function getPrice(summary) {
-    const [pack, material, car] = summary;
-    return price[car][pack][material];
-  }
-
-  function setPrise(summary){
-    const priceContainer = document.querySelector('.step-price__price');
-
-    priceContainer.textContent='';
-    priceContainer.textContent = `${getPrice(summary)} руб`;
-
-    const summaryInput = document.querySelector('#calc-summary-input');
-    const priceInput = document.querySelector('#calc-price-input');
-    // console.log(summary)
-    priceInput.value = `${getPrice(summary)} руб`;
-    const [pack, material, car] = summary;
-    summaryInput.value = `Машина "${car}" комплект "${pack}" материал "${material}"`
-  }
+  // function setPrise(summary){
+  //   const priceContainer = document.querySelector('.step-price__price');
+  //   priceContainer.textContent='';
+  //   priceContainer.textContent = `${getPrice(summary)} руб`;
+  //   const summaryInput = document.querySelector('#calc-summary-input');
+  //   const priceInput = document.querySelector('#calc-price-input');
+  //   priceInput.value = `${getPrice(summary)} руб`;
+  //   const [pack, material, car] = summary;
+  //   summaryInput.value = `Машина "${car}" комплект "${pack}" материал "${material}"`
+  // }
 
   const popupInfo = document.querySelector('.popup-info');
 
@@ -212,8 +301,6 @@ stepPrevButtons.forEach( (button) => {
     const priceInput = document.querySelector('#calc-price-input');
     const nameInput = document.querySelector('#calc-name-input');
     const phoneInput = document.querySelector('#calc-phone-input');
-    console.log(summaryInput.value, priceInput.value, nameInput.value, phoneInput.value)
-    console.log(popupInfo)
     popupInfo.classList.add('popup_opened')
   })
 
@@ -224,24 +311,12 @@ stepPrevButtons.forEach( (button) => {
     const priceInput = document.querySelector('#calc-price-input');
     const nameInput = document.querySelector('#calc-name-input');
     const phoneInput = document.querySelector('#calc-phone-input');
-    console.log(summaryInput.value, priceInput.value, nameInput.value, phoneInput.value)
-    // console.log(popupInfo)
-    // popupInfo.classList.add('popup_opened')
-    // popup.classList.remove('popup_opened')
+    // console.log(summaryInput.value, priceInput.value, nameInput.value, phoneInput.value)
   })
   
 
 
-  // Анимация бургера
-  function burgerRotate() {
-    const toggle = document.querySelector('.burger-button');
-    
-    toggle.addEventListener('click', function(e) {
-      this.classList.toggle('opened');
-    });
-  };
 
-  burgerRotate();
 
   // popup
 
@@ -280,17 +355,28 @@ navLinks.forEach(link => {
     burgerButton.classList.remove('opened')
   })
 })
-const header = document.querySelector('.header')
 
-function headerScroll() {
+  // Анимация бургера
+  function burgerRotate() {
+    const toggle = document.querySelector('.burger-button');
+    
+    toggle.addEventListener('click', function(e) {
+      this.classList.toggle('opened');
+    });
+  };
+
+  burgerRotate();
+// const header = document.querySelector('.header')
+
+// function headerScroll() {
  
-// const sticky = header.offsetTop;
-  if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
-    header.classList.add("sticky");
-  } else {
-    header.classList.remove("sticky");
-  }
-}
+// // const sticky = header.offsetTop;
+//   if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+//     header.classList.add("sticky");
+//   } else {
+//     header.classList.remove("sticky");
+//   }
+// }
 
 // window.onscroll = function() {
 //   headerScroll()
