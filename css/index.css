@@ -80,7 +80,7 @@ body {
 }
 
 .main-list_place_calc {
-  padding: 0 0 0 30px;
+  padding: 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -91,13 +91,13 @@ body {
       -ms-flex-direction: column;
           flex-direction: column;
   max-height: 210px;
-  width: 440px;
+  /* width: 440px; */
 }
 
 .main-list__item_place_calc {
   font-size: 14px;
   line-height: 120%;
-  margin: 0 0 18px 0;
+  margin: 0 80px 18px 0;
 }
 
 .main-list__item_place_calc::before {
@@ -696,58 +696,37 @@ body {
 }
 
 .calc-form {
-  /* background: #171C2C url('../images/calculator-bg-k1.png') no-repeat 90% 88%; */
-  padding: 60px 76px
+  background-color: #171C2C;
+  background-repeat: no-repeat;
+  background-position: 97% 90%;
+  background-size: 575px 316px;
+  padding: 60px 76px;
+  transition: background-image ease-in-out .6s;
 }
 
 .calc-pack-k1 {
   background-image:  url('../images/calculator-bg-k1.png');
-  background-color: #171C2C;
-  background-repeat: no-repeat;
-  background-position: 90% 88%;
-  background-size: 642px 322px;
-  padding: 60px 76px;
-  transition: background-image ease-in-out .6s;
+
 }
 
 .calc-pack-k2 {
   background-image: url('../images/calculator-bg-k2.png');
-  background-color: #171C2C;
-  background-repeat: no-repeat;
-  background-position: 90% 88%;
-  background-size: 642px 322px;
-  padding: 60px 76px;
-  transition: background-image ease-in-out .6s;
+
 }
 
 .calc-pack-k3 {
   background-image:url('../images/calculator-bg-k3.png');
-  background-color: #171C2C;
-  background-repeat: no-repeat;
-  background-position: 90% 88%;
-  background-size: 642px 322px;
-  padding: 60px 76px;
-  transition: background-image ease-in-out .6s;
+
 }
 
 .calc-pack-k4 {
   background-image: url('../images/calculator-bg-k4.png');
-  background-color: #171C2C;
-  background-repeat: no-repeat;
-  background-position: 90% 88%;
-  background-size: 642px 322px;
-  padding: 60px 76px;
-  transition: background-image ease-in-out .6s;
+
 }
 
 .calc-pack-full {
   background-image: url('../images/calculator-bg-k5.png');
-  background-color: #171C2C;
-  background-repeat: no-repeat;
-  background-position: 90% 88%;
-  background-size: 642px 322px;
-  padding: 60px 76px;
-  transition: background-image ease-in-out .6s;
+
 }
 
 .calc-pack-null {
@@ -795,7 +774,7 @@ body {
 }
 
 .form-fieldset_place_calc {
-    margin: 0 100px 60px 0;
+    margin: 0 130px 60px 0;
 }
 
 .form__label {
